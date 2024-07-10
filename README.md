@@ -11,8 +11,6 @@ This action simplifies the GitHub release process by automatically uploading ass
 1. [How to get help](#how-to-get-help)
 1. [License](#license)
 
-> **NOTE**: The `marvinpinto/action-automatic-releases` repository is an automatically generated mirror of the [marvinpinto/actions](https://github.com/marvinpinto/actions) monorepo containing this and other actions. Please file issues and pull requests over there.
-
 ## Usage Examples
 
 ### Automatically generate a pre-release when changes land on master
@@ -26,8 +24,8 @@ This example workflow will kick in as soon as changes land on `master`. After ru
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 1. Mark this release as a `pre-release`.
 
-You can see a working example of this workflow over at [marvinpinto/actions](https://github.com/marvinpinto/actions/releases/tag/latest).
 
+=Multi Files=
 ```yaml
 ---
 name: "pre-release"
@@ -48,7 +46,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "slord399/action-automatic-releases@v1.0.1"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
@@ -57,6 +55,36 @@ jobs:
           files: |
             LICENSE.txt
             *.jar
+```
+
+=Single File=
+```yaml
+---
+name: "pre-release"
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  pre-release:
+    name: "Pre Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
+
+      - uses: "slord399/action-automatic-releases@v1.0.1"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: LICENSE.txt
 ```
 
 ### Create a new GitHub release when tags are pushed to the repository
@@ -89,7 +117,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "slord399/action-automatic-releases@v1.0.1"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
