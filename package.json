@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js && mkdir -p dist/templates && cp src/templates/*.hbs dist/templates/",
     "clean": "rm -rf node_modules yarn-error.log dist",
     "lint": "eslint . --max-warnings=0",
     "lintfix": "eslint --fix ."
