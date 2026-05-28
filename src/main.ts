@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 import {Octokit} from '@octokit/rest';
-import {sync as commitParser} from 'conventional-commits-parser';
+import {CommitParser} from 'conventional-commits-parser';
 import {getChangelogOptions, dumpGitHubEventPayload} from './utils';
 import {isBreakingChange, generateChangelogFromParsedCommits, parseGitTag, octokitLogger} from './utils';
 import semverValid from 'semver/functions/valid';
@@ -209,7 +209,8 @@ export const getChangelog = async (client: Octokit, owner: string, repo: string,
     }
 
     const clOptions = await getChangelogOptions();
-    const parsedCommitMsg: any = commitParser(commit.commit.message, clOptions);
+    const parser = new CommitParser(clOptions);
+    const parsedCommitMsg: any = parser.parse(commit.commit.message);
 
     if (parsedCommitMsg.merge) {
       core.debug(`Ignoring merge commit: ${parsedCommitMsg.merge}`);

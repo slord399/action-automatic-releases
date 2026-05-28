@@ -23,13 +23,15 @@ module.exports = {
 
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    conditionNames: ['import', 'node', 'require'],
   },
 
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'main',
-    libraryTarget: 'commonjs2',
+    library: {
+      type: 'commonjs-static',
+    },
   },
 
   optimization: {
