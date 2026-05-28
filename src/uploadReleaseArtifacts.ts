@@ -3,12 +3,12 @@ import {Octokit} from '@octokit/rest';
 import fs from 'fs';
 import path from 'path';
 import md5File from 'md5-file';
-import globby = require('globby');
+import {globby} from 'globby';
 
 export const uploadReleaseArtifacts = async (client: Octokit, uploadUrl: string, files: string[]): Promise<void> => {
   core.startGroup('Uploading release assets');
   for (const fileGlob of files) {
-    const paths = await (globby as any)(fileGlob);
+    const paths = await globby(fileGlob);
     if (paths.length === 0) {
       core.error(`No files found matching glob: ${fileGlob}`);
     }
