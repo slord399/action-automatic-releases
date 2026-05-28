@@ -2,6 +2,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   target: 'node',
@@ -51,6 +52,9 @@ module.exports = {
   plugins: [
     new webpack.IgnorePlugin({
       resourceRegExp: /\/iconv-loader$/,
+    }),
+    new CopyPlugin({
+      patterns: [{from: 'src/templates', to: 'templates'}],
     }),
   ],
 };
