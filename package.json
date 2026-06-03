@@ -26,7 +26,7 @@
   "devDependencies": {
     "@types/node": "25.9.1",
     "@types/semver": "^7.5.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.60.1",
     "@typescript-eslint/parser": "^8.0.0",
     "copy-webpack-plugin": "^14.0.0",
     "eslint": "10.4.1",
