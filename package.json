@@ -16,7 +16,7 @@
     "@actions/github": "^9.1.1",
     "@octokit/rest": "^22.0.1",
     "ajv": "^8.12.0",
-    "conventional-changelog-angular": "^9.2.0",
+    "conventional-changelog-angular": "^9.2.1",
     "conventional-commits-parser": "^6.4.0",
     "encoding": "^0.1.13",
     "globby": "^16.2.0",
