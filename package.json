@@ -19,7 +19,7 @@
     "conventional-changelog-angular": "^9.2.1",
     "conventional-commits-parser": "^6.4.0",
     "encoding": "^0.1.13",
-    "globby": "^16.2.1",
+    "globby": "^16.2.2",
     "md5-file": "^5.0.0",
     "semver": "^7.8.5"
   },
