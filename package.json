@@ -23,6 +23,10 @@
     "md5-file": "^5.0.0",
     "semver": "^7.8.5"
   },
+  "overrides": {
+    "brace-expansion": "^5.0.12",
+    "fast-uri": "^3.1.8"
+  },
   "devDependencies": {
     "@types/node": "26.6.3",
     "@types/semver": "^7.8.0",
